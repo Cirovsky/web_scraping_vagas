@@ -1,18 +1,25 @@
 import requests
 import pandas as pd
+import json
 #import bs4
 
 def buscar_gupy(keyword):
     url= "https://portal.api.gupy.io/api/job"
     params ={
         "name":keyword,
-        "limit":100,
+        "limit":1000,
         "offset":0
     }
 
     headers = {"User-Agent":"Mozzila/5.0"}
     resp = requests.get(url=url, params = params, headers=headers)
     dados = resp.json()
-    print(dados)
+    vagas = []
+    return dados["data"]
 
-buscar_gupy("Analista de Dados")
+
+df = pd.DataFrame(buscar_gupy("Analista de Dados"))
+
+print(df)
+print(df.columns)
+print(df["description"])
