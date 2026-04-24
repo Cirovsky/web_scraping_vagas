@@ -18,7 +18,7 @@ def buscar_gupy(keyword):
     return dados["data"]
 
 
-df = pd.DataFrame(buscar_gupy("Analista de Dados"))
+df = pd.DataFrame(buscar_gupy("Analista"))
 
 print(df)
 print(df.columns)
